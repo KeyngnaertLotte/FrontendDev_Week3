@@ -1,9 +1,21 @@
+import AddTodo from "./components/AddTodo"
+import AppFooter from "./components/AppFooter"
+import AppHeader from "./components/AppHeader"
+import TodoItem from "./components/TodoItem"
+
 
 
 function App() {
 
-  return <h1>Welcome to todo!</h1>
+  return (
+    <>
+    <AppHeader/>
+    <AddTodo/>
+    <TodoItem/>
+    <AppFooter/>
+    </>
+  )
 
 }
 
-export default App
+export default App; 
