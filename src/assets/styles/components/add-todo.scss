@@ -1,0 +1,39 @@
+.c-add-todo{
+    display: flex;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    gap: 1rem;
+}
+.c-add-todo__button{
+    all: unset; //delete all appearance
+    width: 2rem;
+    height: 2rem;
+    padding: .5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    &:hover{
+        background-color: var(--neutral-x-light);
+    }
+}
+.c-add-todo__icon{
+    stroke: var(--theme-color);
+    stroke-width: 2;
+}
+.c-add-todo__input{
+    all: unset;
+
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: 600;
+
+}
+.c-add-todo__select{
+    all: unset;
+    font-size: 0.9rem;
+    font-weight: 500;
+}

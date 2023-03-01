@@ -1,3 +1,7 @@
 export default () => {
-    return(<p>App Footer</p>)
+    return(
+        <footer className="c-footer">
+            <p>Crafted with 🤍 by me</p>
+        </footer>
+    )
 }

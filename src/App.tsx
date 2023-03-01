@@ -11,7 +11,9 @@ function App() {
     <div className="o-container">
     <AppHeader/>
     <AddTodo/>
-    <TodoItem/>
+    <ul>
+    <TodoItem name='water drinken' category="personal" isDone={false}/>
+    </ul>
     <AppFooter/>
     </div>
   )

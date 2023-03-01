@@ -1,20 +1,15 @@
 import { CheckCircle2, Circle } from 'lucide-react'
-import '../assets/styles/components/list.scss'
+import '../assets/styles/components/todo-item.scss'
 
-export default () => {
+export default ({name, category, isDone} : {name: string, category: string, isDone: boolean})  => {
     // TODO: i want props here
     // description, category, isDone, id
     
     return(
-    <>
-        <li className="c-list">
+        <li className="c-todo-item">
             <input type="checkbox" id='check1'/>
-            <label htmlFor="check1"><CheckCircle2/> <Circle/> Labo bekijken</label>
+            <label htmlFor="check1"><CheckCircle2/> <Circle/> {name}</label>
+            <p>{category}</p>
         </li>
-        <li className="c-list">
-            <input type="checkbox" id='check2'/>
-            <label htmlFor="check2"><CheckCircle2/> <Circle/> Labo bekijken</label>
-        </li>
-    </>
     )
 }
