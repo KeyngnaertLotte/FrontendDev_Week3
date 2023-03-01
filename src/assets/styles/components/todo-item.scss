@@ -1,0 +1,10 @@
+.c-todo-item{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--neutral-x-light);
+    &:last-child{
+        border-bottom: none;
+    }
+}
