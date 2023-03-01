@@ -8,12 +8,12 @@ import TodoItem from "./components/TodoItem"
 function App() {
 
   return (
-    <>
+    <div className="o-container">
     <AppHeader/>
     <AddTodo/>
     <TodoItem/>
     <AppFooter/>
-    </>
+    </div>
   )
 
 }

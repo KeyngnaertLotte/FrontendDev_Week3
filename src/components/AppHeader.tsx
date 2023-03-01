@@ -1,7 +1,9 @@
 import { useState } from "react";
 
+import '../assets/styles/components/header.scss'
+
 export default () => {
-    const [user, setUser] = useState('Martyr');
+    const [user, setUser] = useState('userName');
     const [todoCount, setTodoCount]  = useState(14);
 
     const printAmountOfTodos = () => {
@@ -14,9 +16,10 @@ export default () => {
     }
 
     return(
-        <header>
-            <h1>Hello, {user}</h1>
-            <p>{printAmountOfTodos()}</p>
+        <header className="c-header">
+            <h1 className="c-header__title">Hello, {user}</h1>
+            <p className="c-header__subtitle">{printAmountOfTodos()}</p>
         </header>
     )
 }
+

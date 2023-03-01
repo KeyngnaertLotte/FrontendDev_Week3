@@ -1,0 +1,19 @@
+.c-form{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.c-form svg{
+    stroke: #6B58CC;
+}
+
+.c-input{
+    border: none;
+    font-size: 18px;
+}
+
+.c-select{
+    border: none;
+    width: 5rem;
+}
