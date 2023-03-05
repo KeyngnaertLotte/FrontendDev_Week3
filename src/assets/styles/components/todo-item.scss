@@ -1,8 +1,8 @@
 .c-todo-item{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 1rem;
     padding: 1rem;
     border-bottom: 1px solid var(--neutral-x-light);
@@ -13,4 +13,15 @@
 
 .c-todo-item__input{
     display: none;
+}
+
+.c-todo-item__check{
+    stroke: var(--theme-color);
+}
+
+.c-todo-item__label{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
 }
