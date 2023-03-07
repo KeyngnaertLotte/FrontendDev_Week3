@@ -1,12 +1,31 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
-import App from './App'
+import './assets/tailwind.css'
+import AppFooter from './components/AppFooter';
+import Dashboard from './routes/Dashboard';
+import Settings from './routes/Settings';
 
-import './assets/styles/screen.scss'
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Dashboard/>,
+  },
+  {
+    path: "/settings",
+    element: <Settings/>, // = lazy loading
+  }
+]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
+    <div className="o-container">
+    <AppFooter/>
+    </div>
   </React.StrictMode>,
 )
