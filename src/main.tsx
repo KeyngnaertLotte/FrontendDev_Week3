@@ -5,7 +5,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import './assets/styles/screen.scss'
+import './assets/tailwind.css'
 import AppFooter from './components/AppFooter';
 import Dashboard from './routes/Dashboard';
 import Settings from './routes/Settings';
