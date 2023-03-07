@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import Settings from "../routes/Settings";
 
-import '../assets/styles/components/header.scss'
 
 export default () => {
     const [user, setUser] = useState('userName');
@@ -16,9 +17,15 @@ export default () => {
     }
 
     return(
-        <header className="c-header">
-            <h1 className="c-header__title">Hello, {user}</h1>
-            <p className="c-header__subtitle">{printAmountOfTodos()}</p>
+        <header className="py-12 flex items-center justify-between">
+            <div className="flex items-center">
+            <h1 className="text-4xl font-bold ">Hello{user ? `, ${user}` : ``}</h1>
+            <p className=" text-lg text-neutral-500">{printAmountOfTodos()}</p>
+            </div>
+
+            <Link to={'/settings'} className="rounded-full bg-neutral-100 p-4 text-neutral-300 hover:text-neutral-600 focus:outline-none focus-visible:ring"> 
+                <Settings/>
+            </Link>
         </header>
     )
 }

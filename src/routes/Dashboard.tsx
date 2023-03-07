@@ -14,16 +14,15 @@ export default function Dashboard() {
       const addNewTodo = (t: iTodo) => {
         setTodos([t, ...todos])
       }
-    return (
-        <main> 
-            
-    <AppHeader/>
-              
-        <AddTodo handleNewTodo={addNewTodo}/>
 
-    <ul>
-        {todos.map((todo: iTodo) => <TodoItem todo={todo}/>)}
-    </ul>
-</main>
+
+    return (
+        <main className="px-12">  
+            <AppHeader/>  
+            <AddTodo handleNewTodo={addNewTodo}/>
+            <ul className="flex flex-col gap-y-4">
+                {todos.map((todo: iTodo) => <TodoItem todo={todo}/>)}
+            </ul>
+        </main>
     );
 }
