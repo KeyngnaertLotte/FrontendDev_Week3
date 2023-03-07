@@ -1,3 +1,4 @@
+import { SettingsIcon } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Settings from "../routes/Settings";
@@ -24,7 +25,7 @@ export default () => {
             </div>
 
             <Link to={'/settings'} className="rounded-full bg-neutral-100 p-4 text-neutral-300 hover:text-neutral-600 focus:outline-none focus-visible:ring"> 
-                <Settings/>
+                <SettingsIcon/>
             </Link>
         </header>
     )
