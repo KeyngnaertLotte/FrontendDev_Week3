@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import Settings from "../routes/Settings";
 
 
-export default () => {
+export default ({todoCount}: {todoCount: number}) => {
     const [user, setUser] = useState('userName');
-    const [todoCount, setTodoCount]  = useState(14);
+    // const [todoCount, setTodoCount]  = useState(14);
 
     const printAmountOfTodos = () => {
         if (todoCount === 0) {
@@ -19,7 +19,7 @@ export default () => {
 
     return(
         <header className="py-12 flex items-center justify-between">
-            <div className="flex items-center">
+            <div className="flex  flex-col">
             <h1 className="text-4xl font-bold ">Hello{user ? `, ${user}` : ``}</h1>
             <p className=" text-lg text-neutral-500">{printAmountOfTodos()}</p>
             </div>

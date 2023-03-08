@@ -22,9 +22,9 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
+  <React.StrictMode >
+    <div className="w-6/12 mx-auto py-8">
     <RouterProvider router={router} />
-    <div className="max-w-screen-xl mx-auto py-8">
     <AppFooter/>
     </div>
   </React.StrictMode>,
