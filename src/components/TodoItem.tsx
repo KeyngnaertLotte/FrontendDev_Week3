@@ -1,49 +1,62 @@
-import { Check, CheckCircle2, Circle } from 'lucide-react'
+import { Check } from 'lucide-react'
 import { useState } from 'react'
 import { iTodo } from '../interfaces/ITodo'
 
-export default ({ todo }: { todo: iTodo }) => {
+export default ({
+  todo,
+  toggle,
+  remove,
+}: {
+  todo: iTodo
+  toggle: Function
+  remove: Function
+}) => {
   // TODO: i want props here
   // description, category, isDone, id
-  let iconStart = todo.isDone ? (
-    <CheckCircle2 className="" />
-  ) : (
-    <Circle className="" />
-  )
+  const [timeOutId, setTimeOutId] = useState<number | undefined>()
 
-  const [icon, setIcon] = useState(iconStart)
+  const handleToggle = () => {
+    if (timeOutId) clearTimeout(timeOutId)
+    toggle(todo)
 
-  const checkStatus = () => {
-    console.log('checkStatus')
-    todo.isDone = !todo.isDone
-    console.log(todo)
-    if (todo.isDone) {
-      setIcon(<CheckCircle2 className="" />)
-    } else {
-      setIcon(<Circle className="" />)
+    if (!todo.isDone) {
+      const id = setTimeout(() => {
+        remove(todo)
+        setTimeOutId(undefined) //better safe than sorry
+      }, 3000)
+
+      setTimeOutId(id)
     }
   }
 
   return (
     // class sr-only = visually hidden
-    <li className="flex flex-row items-start gap-4">
-      <input
+    <li>
+      
+      <label
+        htmlFor={todo.id}
+        className="flex items-center gap-4 transition-opacity duration-200 peer-checked:opacity-30 "
+      >
+        <input
         className="peer sr-only"
         type="checkbox"
-        id={todo.name}
-        onChange={checkStatus}
+        id={todo.id}
+        onChange={handleToggle}
+        defaultChecked={todo.isDone}
       />
-      <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-blue-600 bg-neutral-100 ${ todo.isDone ? 'bg-blue-600' : ''}`}>
-        <Check className={`stroke-current text-white`} />
-      </span>
-      {/* <label className='' htmlFor={todo.name}>{icon} </label> */}
+        <span
+          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-blue-600  ${
+            todo.isDone ? 'bg-blue-600' : 'bg-neutral-100'
+          } peer-focus-visible:ring`}
+        >
+          <Check className={`stroke-current text-neutral-100`} />
+        </span>
 
-      <div className="flex flex-col items-start">
-        <label className="text-xl font-semibold" htmlFor={todo.name}>
-          {todo.name}
-        </label>
-        <p className="text-neutral-400">{todo.category}</p>
-      </div>
+        <div className="flex flex-col items-start">
+          <p className="text-xl font-semibold">{todo.name}</p>
+          <p className="text-neutral-400">{todo.category}</p>
+        </div>
+      </label>
     </li>
   )
 }
